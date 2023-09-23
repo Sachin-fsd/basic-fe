@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize</title>
+</head>
+
+<body>
+    
+</body>
+</html>
+
+<script>
+    // window.onresize=changeback;
+    window.addEventListener("resize",changeback)
+    window.onclick=grad;
+function grad(){
+    document.body.style.background=getcolor()
+}
+
+
+    function getcolor(){
+        let code= "#" ;
+        let allcolor="0123456789ABCDEF";
+        for(let i=0; i<6; i++){
+            code=code + allcolor[Math.floor(Math.random()*16)];            
+        }
+        return code;
+
+    }
+    console.log(getcolor())
+
+    function changeback(){
+        document.body.style.backgroundColor=getcolor();
+        console.log(getcolor())
+    }
+    
+
+</script>

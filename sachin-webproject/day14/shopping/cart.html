@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="nav">
+        <h2>Your Cart</h2>
+
+    </div>
+    <div id="boxcart">
+
+        <table id="carttable">
+            <thead>
+                <td width="50%">Item</td>
+                <td width="10%">Number</td>
+                <td>Price</td>
+                <td>Delete</td>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let cartarr = JSON.parse(localStorage.getItem("cart")) || []
+
+    let nav = document.getElementById("nav")
+    let totitem = document.createElement("p")
+    let totprice = document.createElement("p");
+    let items = 0;
+    let tprice = 0;
+
+
+
+    function display() {
+        cartarr.forEach((elem, i) => {
+            let row = document.createElement("tr")
+            let item = document.createElement("td")
+            item.innerText = elem.name;
+            let number = document.createElement("td")
+            number.innerText = elem.number;
+            let price = document.createElement("td")
+            price.innerText = elem.price;
+            let del = document.createElement("td")
+            del.innerText = "Delete";
+            row.append(item, number, price, del)
+            document.querySelector("tbody").append(row)
+            del.addEventListener("click", () => deleteit(i))
+            // console.log(elem.index)
+        });
+    }
+
+    let promo = document.createElement("input");
+    promo.placeholder = "Enter Promo Code"
+
+
+    display()
+    navbar();
+    function deleteit(i) {
+        cartarr.splice(i, 1);
+        localStorage.setItem("cart", JSON.stringify(cartarr));
+        document.querySelector("tbody").innerHTML = "";
+        display();
+        tprice = 0;
+        items = 0;
+        navbar()
+    };
+
+
+
+    function navbar() {
+       
+        cartarr.forEach(elem => {
+            tprice += elem.price;
+            items += elem.number;
+        });
+
+        totitem.innerText = "Total Items : " + items;
+        totprice.innerText = "Total Price : " + tprice
+        nav.append(totitem, totprice)
+    }
+
+    document.body.append(promo);
+    promo.onkeydown = () => {
+        console.log("enetr pressed")
+        if (event.keyCode == "13" && promo.value == "masai30") {
+            console.log("enetr pressed")
+            tprice = tprice * 0.7;
+            tprice = Math.ceil(tprice)
+            totprice.innerText =  "Total Price : " + tprice;
+            nav.append(totprice)
+            
+        }
+    }
+
+
+
+
+</script>

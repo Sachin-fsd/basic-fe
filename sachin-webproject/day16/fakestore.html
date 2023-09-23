@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box{
+            text-align: center;
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+        }
+        #box>div>img{
+            width: 90%;
+        }
+        input{
+            width: 100px;
+            padding: 12px;
+            margin: 12px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <input oninput="search()" type="text" placeholder="Search Products">
+    <div id="box"></div>
+</body>
+
+</html>
+
+<script>
+let bag;
+    let url = "https://fakestoreapi.com/products";
+
+    fetch(url).then((res) => res.json()).then((data) => {
+        bag = data;
+        
+        display(data)})
+
+    function search() {
+        let inp = document.querySelector("input").value;
+        let ndata = bag.filter((elem) => {
+            return elem.title.toLowerCase().includes(inp.toLowerCase())
+        })
+        display(ndata)
+    }
+
+
+    function display(data) {
+
+        document.querySelector("#box").innerHTML=""        
+        data.forEach(elem => {
+            let div = document.createElement("div");
+            let pic = document.createElement("img");
+            pic.setAttribute("src",elem.image)
+            let name = document.createElement("h3");
+            name.innerText=elem.title;
+            let price = document.createElement("p");
+            price.innerText="$"+elem.price;
+            let desc = document.createElement("p");
+            desc.innerText=elem.description;
+            let rate = document.createElement("p");
+            rate.innerText="Rating "+elem.rating.rate;
+
+            div.append(pic,name,price,desc,rate)
+            let box  = document.querySelector("#box");
+            box.append(div)
+            document.body.append(box)
+        });
+
+
+    }
+</script>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallary</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0%;
+        }
+        .nav{
+            
+            display: flex;
+            width: 100%;
+            background-color:#6A1B9A ;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 3%;
+            height: 40px;
+            position: fixed;
+            top: 0;
+            overflow: hidden;
+            /* margin-bottom: 50px; */
+        }
+        #main{
+            margin-top: 30px;
+        }
+        .nav>div{
+            /* border: 1px solid; */
+            width: 300px;
+            display: flex;
+            /* justify-content: spac; */
+            height: 100%;
+            /* border: 1px solid; */
+            
+            /* align-content: center; */
+        }
+        .nav>div>div:hover{
+            background-color:#E57373 ;
+            transition: 0.5s;
+        }
+        .nav>div>div{
+            display: flex;
+            height: 100%;
+            width: 30%;
+            align-items: center;
+            /* border: 1px solid; */
+            justify-content:space-evenly;   
+        }
+        /* .nav>h1::first-letter{
+            color: red;
+        }
+        .nav>h1{
+            text-orientation: revert;
+        } */
+        h2{
+            padding-top:5% ;
+            text-align: center;
+            padding: 5%;
+            color: #E57373;
+            text-shadow: 1px 1px 2px ;
+        }
+        .gallary{
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            /* border: 1px solid; */
+            justify-content: center;
+        }
+        .gallary>img{
+            /* drop-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+            border-radius: 5%;
+            margin: 1%;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h1>Masai</h1>
+        <div>
+            <div>
+                <div>
+                    
+                </div>
+            <h3>Home</h3></div>
+            <div>
+            <h3>Gallery</h3></div>
+            <div>
+            <h3>About</h3></div>
+        </div>
+    </div>
+    <div id="main">
+       <h2>PHOTO GALLARY</h2>
+    <div class="gallary">
+        
+
+        <img src="https://preview.colorlib.com/theme/pentax/img/project/1.jpg.webp" alt="">
+        <img src="https://preview.colorlib.com/theme/pentax/img/project/1.jpg.webp" alt="">
+        <img src="https://preview.colorlib.com/theme/pentax/img/project/1.jpg.webp" alt="">
+        <img src="https://preview.colorlib.com/theme/pentax/img/project/1.jpg.webp" alt="">
+        <img src="https://preview.colorlib.com/theme/pentax/img/project/1.jpg.webp" alt="">
+        <img src="https://preview.colorlib.com/theme/pentax/img/project/1.jpg.webp" alt="">
+    </div>
+    </div>
+</body>
+</html>

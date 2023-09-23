@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="">
+
+    <div>
+        <h1>Sign In</h1>
+
+        <form action="">
+
+            <label for="">Email</label><br>
+            <input id="email" type="email" placeholder="Enter Email"><br><br>
+
+            <label for="">Password</label><br>
+            <input id="password" type="password" placeholder="Enter Password"><br><br>
+
+
+            <p>By Signing in, I accept Masai School Terms of Service and acknowledge Privacy Policy</p>
+            <input type="submit">
+
+        </form>
+    </div>
+    <p>© 2023 by Masai School Privacy Policy & Terms and Conditions</p>
+</body>
+
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit", detail);
+
+    let signuparr = JSON.parse(localStorage.getItem("signup")) || [];
+
+    function detail(event) {
+        event.preventDefault();
+        // let name = document.querySelector("#name").value;
+        let email = document.querySelector("#email").value;
+        let password = document.querySelector("#password").value;
+
+        let userobj = {
+
+            email,
+            password,
+        };
+        console.log(userobj);
+
+        let ans = "Something is wrong";
+        signuparr.forEach(elem => {
+            if (userobj.email == elem.email && userobj.password == elem.password) {
+                ans = "Signed In Successfully";
+                window.location.href="https://www.masaischool.com/"
+                return ans;
+            }
+        });
+        alert(ans);
+
+
+    }
+</script>

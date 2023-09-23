@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        body{
+            text-align: center;
+            width: 60%;
+            margin: auto;
+        }
+        p{
+            font-size: 34px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 900;
+            color: blue;
+            
+        }
+        #calc{
+            margin: auto;
+            text-align: center;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            height: 400px;
+            width: 60%;
+            padding: 4% ;
+            display: grid;
+            gap: 3%;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows:1.1fr repeat(4,1fr) ;
+        }
+        #space{
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            grid-column: 1/5;
+            
+            
+        }
+        #calc>div:hover{
+            cursor:pointer;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        #calc>div{
+            background-color: white;
+            font-size:25px ;
+            font-weight: 900;
+            border-radius: 4%;
+            /* border: 1px solid black; */
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #calc>div:nth-child(4n+1){
+            background-color: black;
+            color: white;
+        }
+        #calc>div:nth-child(1){
+            background-color: rgb(255, 255, 255);
+            color:black;
+            font-weight: 10000;
+            font-size: 40px;
+        }
+        #calc>div:nth-child(16){
+            background-color: rgb(245, 0, 0);
+            color: white;
+        }
+        #space{
+            overflow: hidden;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <p>Masai Calculator</p>
+    <div id="calc">
+        <div id="space"></div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>*</div>
+        <div>C</div>
+        <div>0</div>
+        <div>=</div>
+        <div>/</div>
+    </div>
+</body>
+</html>
+
+<script>
+let x = document.querySelectorAll("#space~div")
+
+for(let i=0; i<x.length; i++){
+    x[i].addEventListener("click",mycalc)
+}
+let bag="";
+
+function mycalc(event){
+    let key=event.target.innerText
+   
+
+    if(key=="C"){
+        bag="";
+        document.querySelector("#space").innerText=bag;
+
+    }
+    else if(key=="="){
+        let res=eval(bag)
+        document.querySelector("#space").innerText=res;
+        bag=res;
+    }
+    else{
+         bag+=key;
+        document.querySelector("#space").innerText=bag;
+
+    }
+
+
+}
+
+</script>

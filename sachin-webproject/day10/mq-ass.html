@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mq-ass</title>
+    <style>
+        .box{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows:repeat(4,100px) ;
+            gap: 10px;
+        }
+        .box>div:nth-child(1){
+            background-color: yellow;
+            grid-column: 1/3;
+        }
+        .box>div:nth-child(2){
+            grid-area:2/1/5/2;
+            background-color: rgb(12, 16, 223);
+        }
+         .box>div:nth-child(3),.box>div:nth-child(4),.box>div:nth-child(5){
+            background-color: greenyellow;
+         }
+
+@media screen and (min-width: 641px) and (max-width: 1007px){
+         
+    .box{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows:repeat(4,100px) ;
+            gap: 10px;
+        }
+        .box>div:nth-child(1){
+            background-color: yellow;
+            grid-column: 1/4;
+            height: 80px;
+        }
+        .box>div:nth-child(2){
+            grid-area:2/1/4/4;
+            background-color: rgb(223, 12, 12);
+        }
+         .box>div:nth-child(3),.box>div:nth-child(4),.box>div:nth-child(5){
+            background-color: greenyellow;
+         }
+
+        }
+            
+@media screen and (min-width:100px) and (max-width:640px){
+    .box{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows:repeat(6,100px) ;
+            gap: 10px;
+        }
+        .box>div:nth-child(1){
+            background-color: yellow;
+            grid-column: 1/2;
+            /* height: 80px; */
+        }
+        .box>div:nth-child(2){
+            grid-column: 1/2;
+            grid-row: 2/4;
+            background-color: rgb(223, 12, 12);
+        }
+         .box>div:nth-child(3),.box>div:nth-child(4),.box>div:nth-child(5){
+            background-color: greenyellow;
+         }
+}        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>Navigation</div>
+        <div>left box</div>
+        <div>right box1</div>
+        <div>right box2</div>
+        <div>right box3</div>
+    </div>
+</body>
+</html>

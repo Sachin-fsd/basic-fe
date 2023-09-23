@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+</head>
+
+<body>
+    <button id="setname">Store name to Local Storage</button><br>
+    <hr>
+
+    <button id="getname">Get name to Local Storage</button><br>
+    <hr>
+
+    <button id="setnumber">Store number to Local Storage</button><br>
+    <hr>
+
+    <button id="getnumber">Get number from Local Storage</button><br>
+    <hr>
+
+    <button id="sethobbies">Set Hobbies to Local Storage</button><br><hr>
+    <button id="gethobbies">Get hobbies from Local Storage</button><br>
+    <hr>
+    <button id="sdata">Store Student Data to Local Storage</button><br>
+    <hr>
+
+    <button id="getsdata">Get Student Data to Local Storage</button><br><hr>
+</body>
+
+</html>
+
+<script>
+    document.querySelector("#setname").addEventListener("click", addtols);
+    document.querySelector("#getname").addEventListener("click", getname);
+    document.querySelector("#getname").addEventListener("click", setnumber);
+    document.querySelector("#getnumber").addEventListener("click", getnumber);
+    document.querySelector("#sethobbies").addEventListener("click", sethobbies);
+    document.querySelector("#gethobbies").addEventListener("click", gethobbies);
+    document.querySelector("#sdata").addEventListener("click", sdata);
+    document.querySelector("#getsdata").addEventListener("click", getsdata);
+
+    function getname() {
+        let name = localStorage.getItem("Username")
+        let h = document.createElement("h1");
+        h.innerText = name;
+        document.querySelector("body").append(h)
+    }
+    function addtols() {
+        localStorage.setItem("Username", "Masai School");
+    }
+
+    function setnumber() {
+        localStorage.setItem("mobile", 999999999);
+    }
+
+    function getnumber() {
+        let num = localStorage.getItem("mobile")
+        let numb = document.createElement("h1");
+        numb.innerText = num;
+        document.querySelector("body").append(numb)
+    }
+
+    function sethobbies() {
+        localStorage.setItem("hobbies", JSON.stringify(["ludo", "chess"]));
+    }
+    function gethobbies() {
+        let hobby = JSON.parse(localStorage.getItem("hobbies"))
+
+        hobby.forEach(elem => {
+            console.log(elem)
+        });
+    }
+    function sdata() {
+        let arr = [
+            {name:"Nrupul",age:34},
+            {name:"Sachin",age:17}
+        ]
+        localStorage.setItem("sdata", JSON.stringify(arr));
+    }
+    function getsdata() {
+      let arr = JSON.parse(localStorage.getItem("sdata"))
+      
+         arr .forEach(elem=> {
+            console.log(elem.name)
+        });
+    }
+
+</script>

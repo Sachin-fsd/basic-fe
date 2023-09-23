@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calculator</title>
+</head>
+<body>
+    <input id="num1" type="number" placeholder="enter num1">
+    <input id="num2" type="number" placeholder="enter num2">
+    
+    <BR></BR>
+    <button onclick="add()">ADD</button>
+    <button onclick="sub()">SUBTRACT</button>
+    <button onclick="mul()">MULTIPLY</button>
+    <button onclick="div()">DIVIDE</button>
+
+    <h2>Answer</h2>
+    <h1 id="ans"> </h1>
+</body>
+</html>
+
+<script>
+    
+   
+    function add() {
+      let numb1=document.getElementById("num1").value;
+      let numb2=document.getElementById("num2").value;
+      // document.getElementById("ans").innerText=numb1+numb2;
+      let answ=Number(numb1) + Number(numb2);
+      document.getElementById("ans").innerText=answ
+    }
+
+    function sub() {
+      let numb1=document.getElementById("num1").value;
+      let numb2=document.getElementById("num2").value;
+      // document.getElementById("ans").innerText=numb1+numb2;
+      let answ=Number(numb1) - Number(numb2);
+      document.getElementById("ans").innerText=answ
+    }
+
+    function mul() {
+      let numb1=document.getElementById("num1").value;
+      let numb2=document.getElementById("num2").value;
+      // document.getElementById("ans").innerText=numb1+numb2;
+      let answ=Number(numb1) * Number(numb2);
+      document.getElementById("ans").innerText=answ
+    }
+
+    function div() {
+      let numb1=document.getElementById("num1").value;
+      let numb2=document.getElementById("num2").value;
+      // document.getElementById("ans").innerText=numb1+numb2;
+      let answ=Number(numb1) / Number(numb2);
+      document.getElementById("ans").innerText=answ
+    }
+</script>

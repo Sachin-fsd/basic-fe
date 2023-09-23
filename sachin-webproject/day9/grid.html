@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    .grid{
+        height: auto;
+       background-color: aliceblue;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-auto-rows:100px;
+        gap: 10px;
+    }
+    #nav{
+        font-size: 34px;
+        font-weight: 800;
+        background-color: yellow;
+        grid-column:1/5 ;
+    }
+    .grid>div:nth-child(2){
+        background-color: red;
+    }
+    .grid>div:nth-child(3){
+        background-color: lightgreen;
+    }
+    .grid>div:nth-child(4){
+        background-color: blue;
+    }
+    .grid>div:nth-child(5){
+        background-color: gray;
+    }
+
+    @media all and (min-width: 200px) and (max-width: 640px) {
+        .grid{
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(5,100px);
+
+        }
+        #nav{
+            grid-column: 1/2;
+        }
+
+    }
+    @media screen and (min-width:641px) and (max-width:1007px) {
+        .grid{
+            grid-template-columns: repeat(2,1fr);
+            grid-auto-rows: 100px;
+
+        }
+        #nav{
+        font-size: 34px;
+        font-weight: 800;
+        background-color: yellow;
+        grid-column:1/3 ;
+    }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div id="nav">Navigation</div>
+        <div>BOX1</div>
+        <div>BOX2</div>
+        <div>BOX3</div>
+        <div>BOX4</div>
+    </div>
+</body>
+</html>

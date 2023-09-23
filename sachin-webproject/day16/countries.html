@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+
+        }
+
+        #container>div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 10px;
+        }
+
+        @media screen and (min-width:641px) and (max-width:1007px) {
+            #container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+
+
+            }
+        }
+
+        @media screen and (min-width:100px) and (max-width:640px) {
+            #container {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: auto;
+
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Countries</h1>
+    <input oninput="searc()" type="text" id="search" placeholder="Search Countries">
+    <select onchange="sort()" name="Sort" id="pop">
+        <option value="">Sort By Population</option>
+        <option value="HTL">High To Low</option>
+        <option value="LTH">Low To High</option>
+    </select>
+    <div id="container"></div>
+
+
+</body>
+
+</html>
+<script>
+    let bag;
+    let url = "https://restcountries.com/v3.1/all";
+
+    function sort() {
+        let sortvalue = document.querySelector("#pop").value
+        if (sortvalue == "HTL") {
+            let highsort = bag.sort((a, b) => b.population - a.population);
+            displaycard(highsort);
+        } else if (sortvalue == "LTH") {
+            let lowsort = bag.sort((a, b) => a.population - b.population);
+            displaycard(lowsort);
+        }
+    }
+
+    async function getdata() {
+        try {
+            let res = await fetch(url);
+            let data = await res.json();
+            bag = data;
+            displaycard(data)
+        } catch (err) {
+            alert(err)
+        }
+    }
+
+    getdata()
+
+    function searc() {
+        let srch = document.getElementById("search").value;
+
+        let searchdata = bag.filter((elem) => {
+            return elem.name.official.toLowerCase().includes(srch.toLowerCase());
+            
+            console.log(searchdata)
+        })
+        displaycard(searchdata);
+    }
+
+    function displaycard(data) {
+        document.querySelector("#container").innerHTML = ""
+        data.forEach(elem => {
+            let div = document.createElement("div");
+            let img = document.createElement("img")
+            img.setAttribute("src", elem.flags.png);
+            let name = document.createElement("h3");
+            name.innerText = elem.name.official;
+            let capital = document.createElement("p");
+            capital.innerText = "Capital : " + elem.capital;
+            let population = document.createElement("p");
+            population.innerText = "Population : " + elem.population;
+            div.append(img, name, capital, population);
+            document.querySelector("#container").append(div)
+
+        });
+        let box = document.querySelector("#container")
+        document.body.append(box)
+    }
+</script>

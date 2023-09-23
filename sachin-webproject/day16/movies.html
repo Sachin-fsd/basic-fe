@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        body{
+            text-align: center;
+        }
+     input{
+        width: 200px;
+        margin: 12px;
+        padding: 15px;
+        background-color: aliceblue;
+     }
+    </style>
+</head>
+
+<body>
+    
+   <input oninput="run()" type="text" placeholder="enter movie name">
+
+   <div id="box"></div>
+</body>
+
+</html>
+
+<script>
+//     let url = "https://jsonplaceholder.typicode.com/todos";
+//     fetch(url)
+//         .then((res) => res.json())
+//         .then((data) => displaytable(data))
+//         .catch((err) => alert(err));
+
+// function displaytable(data){
+
+//     data.forEach(elem => {
+//         let tr = document.createElement("tr")
+//     let td1 = document.createElement("td")
+//     td1.innerText=elem.id
+//     let td2 = document.createElement("td")
+//     td2.innerText=elem.title
+
+//     let td3 = document.createElement("td")
+//     td3.innerText=elem.completed
+
+//     tr.append(td1,td2,td3)
+//     document.querySelector("tbody").append(tr);
+//     });
+   
+// }
+
+let x = document.querySelector("input")
+
+function run(){
+    
+    let url = "http://www.omdbapi.com/?apikey=85fb5fc6&t="+x.value;
+
+fetch(url).then((res) => res.json()).then((data) => display(data)).catch((err) => eror(err))
+}
+
+function display(data) {
+
+    document.querySelector("#box").innerHTML=""
+
+    let div = document.createElement("div");
+    let pic = document.createElement("img");
+    pic.setAttribute("src",data.Poster);
+    let title = document.createElement("h1")
+    title.innerText=data.Title
+    let year = document.createElement("p")
+    year.innerText=data.Year
+    let plot = document.createElement("p")
+    plot.innerText=data.Plot
+    let rate = document.createElement("p")
+    let top = data.Ratings[0].Value
+
+    rate.innerText="Rating "+data.Ratings[0].Value
+
+   
+    let rec = eval(top) ;
+
+    if(rec>=0.7){
+        let sugg = document.createElement("p")
+    sugg.innerText="Reccommanded"
+    div.append(sugg)
+    }
+
+    let earn = document.createElement("p")
+    earn.innerText="BOxOffice "+data.BoxOffice
+    div.append(title,pic,year,plot,earn, rate);
+    let box = document.querySelector("#box");
+    box.append(div)
+    document.body.append(box)
+
+    
+}
+
+function eror(err) {
+    document.querySelector("#box").innerHTML="";
+    let pic = document.createElement("img");
+    pic.setAttribute("src","https://media3.giphy.com/media/l0HlRnAWXxn0MhKLK/200.webp?cid=ecf05e47k3erxstqnbi4xk2b4fuofrpo62bkv0xhwrfzpy79&ep=v1_gifs_search&rid=200.webp&ct=g");
+    pic.setAttribute("width","50%");
+
+    document.querySelector("#box").append(pic);
+}
+</script>

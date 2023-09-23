@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U2C1</title>
+    <style>
+      h1{
+        text-align: center;
+        color: teal;
+      }
+      #music-cards{
+        height: 200px;
+        width: 60%;
+        border: 1px solid white;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .mcards{
+        height:100%;
+        width:25%;
+        border:1px solid white;
+        text-align: center;
+      }
+      .card{
+        width:55%;
+      }
+      #guests{
+        height: 510px;
+        width:90%;
+        border: 1px solid white;
+        justify-content: space-evenly;
+        display: flex;
+        text-align: center;
+        margin: auto;
+      }
+
+     .guest_img{
+      width:60%
+     }
+
+     .guest{
+      border:1px solid white;
+      width: 25%;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      padding-top: 15px;
+     }
+
+     button{
+      color: white;
+      text-decoration-color: pink;
+      background-color: teal;
+      border: 0px;
+      width: 25%;
+      height: 5%;
+     }
+
+     #albums{
+      height: 300px;
+      width: 90%;
+      border: 1px solid white;
+      display: flex;
+      justify-content: space-evenly;
+      margin: auto;
+      text-align: center;
+     }
+
+     .new_img{
+      width: 90%;
+     }
+
+    #nh1{
+      margin-top: 30px;
+    }
+    
+    .para{
+      margin-top: -15px;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Top-section -->
+    <h1>Get ready for seamless online music</h1>
+
+    <div id="music-cards">
+      <!-- This section should contain 4 children divs, each div should have img,h4,p -->
+      <div class="mcards">
+        <img class="card" src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-06-22/1_478664.webp"/>
+        <h4>Offline mode</h4>
+        <p class="para" >Save and Listen anywhere</p1>
+      </div>
+
+      <div class="mcards">
+        <img class="card" src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-06-22/2_611568.webp"/>
+        <h4>High quality audio</h4>
+        <p class="para">Enjoy full range of sound </p>
+      </div>
+
+      <div class="mcards">
+        <img class="card" src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-06-22/3_784633.webp"/>
+        <h4>No ads</h4>
+        <p class="para">Enjoy non-stop music</p>
+      </div>
+
+      <div class="mcards">
+        <img class="card" src=" https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-06-22/4_716330.webp
+        "/>
+        <h4>Unlimited skips</h4>
+        <p class="para">Just tap skip</p>
+      </div>
+    </div>
+
+    <!-- Medium-section -->
+    <h1>Featured Guests</h1>
+    <div id="guests">
+      <!-- This section should contain 3 children divs, each div should have image,h3,p,button -->
+
+      <div class = "guest" >
+        <img id="megan" class="guest_img" src="https://cdn.pixabay.com/photo/2017/06/17/18/38/stalin-skyscraper-2413103__340.jpg"/>
+        <h3>Megan Smith</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto debitis porro alias animi illum quibusdam nesciunt optio aliquam cum temporibus quia veritatis ipsum dicta vel, nemo hic doloremque accusamus. Sapiente.</p>
+        <button>Register</button>
+      </div>
+      <div class = "guest">
+      <img id="Brooke" class="guest_img" src="https://cdn.pixabay.com/photo/2017/06/17/18/38/stalin-skyscraper-2413104__340.jpg"/>
+        <h3>Brooke Kagle</h3>
+        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto debitis porro alias animi illum quibusdam nesciunt optio aliquam cum temporibus quia veritatis ipsum dicta vel, nemo hic doloremque accusamus. Sapiente.</p>
+        <button>Register</button>
+      </div>
+      <div class = "guest">
+      <img id="philip" class="guest_img" src="https://cdn.pixabay.com/photo/2017/06/18/00/17/stalin-skyscraper-2414158__340.jpg"/>
+        <h3>Philip Martin</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto debitis porro alias animi illum quibusdam nesciunt optio aliquam cum temporibus quia veritatis ipsum dicta vel, nemo hic doloremque accusamus. Sapiente.</p>
+        <button>Register</button>
+      </div>
+    </div>
+
+    <!-- bottom-section -->
+    <h1 id="nh1">BUY WHAT’S NEW</h1>
+    <div id="albums">
+      <!-- This section should contain 5 children divs, each div should have img,h3,p -->
+
+      <div class="album">
+        <img class="new_img" src="https://preview.colorlib.com/theme/onemusic/img/bg-img/b1.jpg"/>
+        <h3>Garage Band</h3>
+        <p>Radio Station</p>
+      </div>
+
+      <div class="album">
+        <img class="new_img" src="https://preview.colorlib.com/theme/onemusic/img/bg-img/b2.jpg"/>
+        <h3>Garage Band</h3>
+        <p>Radio Station</p>
+      </div>
+
+      <div class="album">
+        <img class="new_img" id="img1" src=" https://preview.colorlib.com/theme/onemusic/img/bg-img/b2.jpg"/>
+        <h3>Garage Band</h3>
+        <p>Radio Station</p>
+      </div>
+
+      <div class="album">
+        <img class="new_img" id="img2" src="https://preview.colorlib.com/theme/onemusic/img/bg-img/b1.jpg"/>
+        <h3>Garage Band</h3>
+        <p>Radio Station</p>
+      </div>
+
+      <div class="album">
+        <img class="new_img" src=" https://preview.colorlib.com/theme/onemusic/img/bg-img/b2.jpg"/>
+        <h3>Garage Band</h3>
+        <p>Radio Station</p>
+      </div>
+    </div>
+  </body>
+</html>

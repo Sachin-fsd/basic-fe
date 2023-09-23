@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+      #id {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        /* width: 100%; */
+        background-color: rgb(113, 185, 248);
+      }
+
+      #id > div {
+        padding: 10px;
+        margin: 20px;
+        font-size: 30px;
+        border: 1px solid black;
+        background-color: rgb(243, 126, 171);
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="id">
+      <div id="hrs"></div>
+      <span>:</span>
+      <div id="mins"></div>
+      <span>:</span>
+      <div id="secs"></div>
+      <div id="ampm"></div>
+    </div>
+  </body>
+</html>
+<script>
+  function time() {
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    let hrs = (document.getElementById("hrs").innerText = hours);
+    document.getElementById("mins").innerText = minutes;
+    document.getElementById("secs").innerText = seconds;
+
+    if (hours >= 12) {
+      document.getElementById("ampm").innerText = "PM";
+    } else {
+      document.getElementById("ampm").innerText = "AM";
+    }
+  }
+
+  setInterval(time, 1000);
+</script>
